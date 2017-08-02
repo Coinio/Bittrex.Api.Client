@@ -1,12 +1,12 @@
 # Bittrex.Api.Client
 
-This is a simple C# http client wrapper for the Bittrex cryptocurrency trading platform Api. The docs for the Api can be found here: 
+This is a simple C# http client wrapper for the Bittrex cryptocurrency trading platform Api. This can be used to query price information, create buy / sell orders, etc.
+
+The docs for the Api can be found here: 
 
 https://www.bittrex.com/Home/Api
 
-Nearly all of the public and private end points are implemented but they haven't exactly been thoroughly tested so use at your peril. 
-
-DISCLAIMER: This code is provided for learning purposes only and any losses incurred are not my responsibility. Have fun!
+DISCLAIMER: This code is provided for learning purposes only and I take no responsibility for any issues. Have fun!
 
 Example Usage:
 
