@@ -37,7 +37,7 @@ Create a buy order for some FACTOM!
 
 ```CS
 
-var buyResult = await client.BuyLimit("BTC-FTC", quantity: 100m, rate: 0.00001837m);
+var buyResult = await client.BuyLimit("BTC-FCT", quantity: 100m, rate: 0.00001837m);
 
 if (buyResult.Success)
       Console.WriteLine("To the moon!");
