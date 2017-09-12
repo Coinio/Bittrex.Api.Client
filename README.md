@@ -1,5 +1,9 @@
 # Bittrex.Api.Client
 
+Nuget:
+
+https://www.nuget.org/packages/Bittrex.Api.Client
+
 This is a simple C# http client wrapper for the Bittrex cryptocurrency trading platform Api. This can be used to query price information, create buy / sell orders, etc.
 
 The docs for the Api can be found here: 
