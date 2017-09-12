@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <Authors>Jonathan Lowe</Authors>
+    <Company />
+    <Version>1.0.0</Version>
+    <PackageProjectUrl>https://github.com/Coinio/Bittrex.Api.Client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Coinio/Bittrex.Api.Client</RepositoryUrl>
+    <PackageTags>C# .net core cryptocurrency bitcoin</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
