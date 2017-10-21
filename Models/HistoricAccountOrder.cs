@@ -15,7 +15,7 @@ namespace Bittrex.Api.Client.Models
         public Decimal QuantityRemaining { get;set; } 
         public Decimal Commission { get; set; }
         public Decimal Price { get; set; }
-        public Decimal? PricePerUnit { get; set; }
+        public Decimal PricePerUnit { get; set; }
         public bool IsConditional { get; set; }
         public String Condition { get; set; }
         public String ConditionTarget { get; set; }
