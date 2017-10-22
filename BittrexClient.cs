@@ -294,7 +294,7 @@ namespace Bittrex.Api.Client
         /// </summary>
         /// <param name="uuid"></param>
         /// <returns></returns>
-        public async Task<ApiResult<HistoricAccountOrder>> GetOrder(Guid uuid)
+        public async Task<ApiResult<Order>> GetOrder(Guid uuid)
         {
             var nonceParam = BuildParameter("nonce", GenerateNonce());
             var uuidParam = BuildParameter("uuid", uuid);
@@ -303,7 +303,7 @@ namespace Bittrex.Api.Client
 
             var json = await GetPrivateAsync(url, _apiSecret);
 
-            return JsonConvert.DeserializeObject<ApiResult<HistoricAccountOrder>>(json);
+            return JsonConvert.DeserializeObject<ApiResult<Order>>(json);
         }
 
         /// <summary>
