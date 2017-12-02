@@ -27,13 +27,19 @@ namespace Bittrex.Api.Client
 
         private readonly String _apiVersion = "v1.1";
 
-        public BittrexClient(String apiKey, String apiSecret) : this(BaseAddress, apiKey, apiSecret)
+        public BittrexClient(String apiKey, String apiSecret)
+            : this(BaseAddress, apiKey, apiSecret)
         {
         }
 
-        public BittrexClient(String baseAddress, String apiKey, String apiSecret)
+        public BittrexClient(String baseAddress, String apiKey, String apiSecret) 
+            : this(baseAddress, apiKey, apiSecret, new HttpClient())
         {
-            _httpClient = new HttpClient();
+        }
+
+        public BittrexClient(String baseAddress, String apiKey, String apiSecret, HttpClient httpClient)
+        {
+            _httpClient = httpClient;
 
             _apiKey = apiKey;
             _apiSecret = apiSecret;
