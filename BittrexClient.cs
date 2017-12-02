@@ -122,8 +122,8 @@ namespace Bittrex.Api.Client
 
             // The end point returns an array so we need to pull this out into a single MarketSummary result
             return new ApiResult<MarketSummary>(
-                arrayResult.Success, 
-                arrayResult.Message, 
+                arrayResult.Success,
+                arrayResult.Message,
                 arrayResult.Result.FirstOrDefault());
         }
 
@@ -133,7 +133,8 @@ namespace Bittrex.Api.Client
         /// </summary>
         /// <returns></returns>
         /// TODO: Create a json converter to handle this properly with OrderType.Both
-        public async Task<ApiResult<BookOrder[]>> GetOrderBook(String market, BookOrderType orderType, int depth = 20)        {
+        public async Task<ApiResult<BookOrder[]>> GetOrderBook(String market, BookOrderType orderType, int depth = 20)
+        {
 
             var typeString = orderType.ToString().ToLower();
 
@@ -386,7 +387,7 @@ namespace Bittrex.Api.Client
             {
                 var hashBytes = hmacsha512.ComputeHash(Encoding.ASCII.GetBytes(url));
 
-                return BitConverter.ToString(hashBytes).Replace("-", "");               
+                return BitConverter.ToString(hashBytes).Replace("-", "");
             }
         }
 
