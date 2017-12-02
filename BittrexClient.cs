@@ -369,9 +369,11 @@ namespace Bittrex.Api.Client
                 .ConfigureAwait(false);
         }
 
+        private static readonly DateTime Epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
         private String GenerateNonce()
         {
-            long nonce = (long)((DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds);
+            long nonce = (long)(DateTime.UtcNow - Epoch).TotalSeconds;
 
             return nonce.ToString();
         }
