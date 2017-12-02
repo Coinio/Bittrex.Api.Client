@@ -6,7 +6,7 @@ The docs for the Api can be found here:
 
 - https://www.bittrex.com/Home/Api
 
-DISCLAIMER: This code is provided for learning purposes only and I take no responsibility for any issues. Have fun!
+**DISCLAIMER: This code is provided for learning purposes only and I take no responsibility for any issues. Have fun!**
 
 
 ## Installation via Nuget
