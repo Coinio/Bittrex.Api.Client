@@ -15,6 +15,7 @@ namespace Bittrex.Api.Client
     /// </summary>
     public class BittrexClient
     {
+        const string BaseAddress = "https://bittrex.com/api";
         private readonly HttpClient _httpClient;
 
         private readonly String _apiKey;
@@ -23,9 +24,12 @@ namespace Bittrex.Api.Client
         private readonly String _publicBaseUrl;
         private readonly String _accountBaseUrl;
         private readonly String _marketBaseUrl;
-        private readonly String _baseAddress;
 
         private readonly String _apiVersion = "v1.1";
+
+        public BittrexClient(String apiKey, String apiSecret) : this(BaseAddress, apiKey, apiSecret)
+        {
+        }
 
         public BittrexClient(String baseAddress, String apiKey, String apiSecret)
         {
@@ -34,10 +38,9 @@ namespace Bittrex.Api.Client
             _apiKey = apiKey;
             _apiSecret = apiSecret;
 
-            _baseAddress = baseAddress;
-            _publicBaseUrl = $"{_baseAddress}/{_apiVersion}/public";
-            _accountBaseUrl = $"{_baseAddress}/{_apiVersion}/account";
-            _marketBaseUrl = $"{_baseAddress}/{_apiVersion}/market";
+            _publicBaseUrl = $"{baseAddress}/{_apiVersion}/public";
+            _accountBaseUrl = $"{baseAddress}/{_apiVersion}/account";
+            _marketBaseUrl = $"{baseAddress}/{_apiVersion}/market";
         }
 
         /// <summary>
