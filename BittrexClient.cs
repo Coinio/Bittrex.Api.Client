@@ -52,7 +52,8 @@ namespace Bittrex.Api.Client
         {
             var url = $"{_publicBaseUrl}/getmarkets";
 
-            var json = await GetPublicAsync(url);
+            var json = await GetPublicAsync(url)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<Market[]>>(json);
         }
@@ -66,7 +67,8 @@ namespace Bittrex.Api.Client
         {
             var url = $"{_publicBaseUrl}/getcurrencies";
 
-            var json = await GetPublicAsync(url);
+            var json = await GetPublicAsync(url)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<CryptoCurrency[]>>(json);
         }
@@ -81,7 +83,8 @@ namespace Bittrex.Api.Client
         {
             var url = $"{_publicBaseUrl}/getticker?market={market}";
 
-            var json = await GetPublicAsync(url);
+            var json = await GetPublicAsync(url)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<Ticker>>(json);
         }
@@ -95,7 +98,8 @@ namespace Bittrex.Api.Client
         {
             var url = $"{_publicBaseUrl}/getmarketsummaries";
 
-            var json = await GetPublicAsync(url);
+            var json = await GetPublicAsync(url)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<MarketSummary[]>>(json);
         }
@@ -110,8 +114,10 @@ namespace Bittrex.Api.Client
         {
             var url = $"{_publicBaseUrl}/getmarketsummary?market={marketName}";
 
-            var json = await GetPublicAsync(url);
-            
+            var json = await GetPublicAsync(url)
+                .ConfigureAwait(false);
+
+
             var arrayResult = JsonConvert.DeserializeObject<ApiResult<MarketSummary[]>>(json);
 
             // The end point returns an array so we need to pull this out into a single MarketSummary result
@@ -133,7 +139,9 @@ namespace Bittrex.Api.Client
 
             var url = $"{_publicBaseUrl}/getorderbook?market={market}&type={typeString}&depth={depth}";
 
-            var json = await GetPublicAsync(url);
+            var json = await GetPublicAsync(url)
+                .ConfigureAwait(false);
+
 
             var apiResult = JsonConvert.DeserializeObject<ApiResult<BookOrder[]>>(json);
 
@@ -156,7 +164,9 @@ namespace Bittrex.Api.Client
         {
             var url = $"{_publicBaseUrl}/getmarkethistory?market={marketName}";
 
-            var json = await GetPublicAsync(url);
+            var json = await GetPublicAsync(url)
+                .ConfigureAwait(false);
+
 
             return JsonConvert.DeserializeObject<ApiResult<HistoricTrade[]>>(json);
         }
@@ -174,7 +184,9 @@ namespace Bittrex.Api.Client
 
             var url = $"{_marketBaseUrl}/buylimit?apiKey={_apiKey}&nonce={nonce}&market={marketName}&quantity={quantity}&rate={rate}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
+
 
             return JsonConvert.DeserializeObject<ApiResult<OrderResult>>(json);
         }
@@ -192,7 +204,9 @@ namespace Bittrex.Api.Client
 
             var url = $"{_marketBaseUrl}/selllimit?apiKey={_apiKey}&nonce={nonce}&market={marketName}&quantity={quantity}&rate={rate}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
+
 
             return JsonConvert.DeserializeObject<ApiResult<OrderResult>>(json);
         }
@@ -208,7 +222,9 @@ namespace Bittrex.Api.Client
 
             var url = $"{_marketBaseUrl}/cancel?apiKey={_apiKey}&nonce={nonce}&uuid={uuid}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
+
 
             return JsonConvert.DeserializeObject<ApiResult<OrderResult>>(json);
         }
@@ -223,7 +239,8 @@ namespace Bittrex.Api.Client
             var marketParam = BuildParameter("market", marketName);
             var url = $"{_marketBaseUrl}/getopenorders?apiKey={_apiKey}&nonce={nonce}&{marketParam}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<OpenOrder[]>>(json);
         }
@@ -238,7 +255,8 @@ namespace Bittrex.Api.Client
 
             var url = $"{_accountBaseUrl}/getbalances?apikey={_apiKey}&nonce={nonce}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);           
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<AccountBalance[]>>(json);
         }
@@ -254,7 +272,8 @@ namespace Bittrex.Api.Client
 
             var url = $"{_accountBaseUrl}/getbalance?apiKey={_apiKey}&nonce={nonce}&currency={currencyName}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<AccountBalance>>(json);
         }
@@ -270,7 +289,8 @@ namespace Bittrex.Api.Client
 
             var url = $"{_accountBaseUrl}/getdepositaddress?apiKey={_apiKey}&nonce={nonce}&currency={currencyName}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<DepositAddress>>(json);
         }
@@ -287,7 +307,8 @@ namespace Bittrex.Api.Client
 
             var url = $"{_accountBaseUrl}/getorderhistory?apiKey={_apiKey}&{nonceParam}&{marketParam}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<HistoricAccountOrder[]>>(json);
         }
@@ -304,7 +325,8 @@ namespace Bittrex.Api.Client
 
             var url = $"{_accountBaseUrl}/getorder?apikey={_apiKey}&{nonceParam}&{uuidParam}";
 
-            var json = await GetPrivateAsync(url, _apiSecret);
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
 
             return JsonConvert.DeserializeObject<ApiResult<Order>>(json);
         }
@@ -318,10 +340,12 @@ namespace Bittrex.Api.Client
         {
             var request = new HttpRequestMessage(HttpMethod.Get, new Uri(url));
 
-            var response = await _httpClient.SendAsync(request);
+            var response = await _httpClient.SendAsync(request)
+                .ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsStringAsync();
+            return await response.Content.ReadAsStringAsync()
+                .ConfigureAwait(false);
         }
 
         /// <summary>
@@ -337,10 +361,12 @@ namespace Bittrex.Api.Client
 
             request.Headers.Add("apisign", apiSign);
 
-            var response = await _httpClient.SendAsync(request);
+            var response = await _httpClient.SendAsync(request)
+                .ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadAsStringAsync();
+            return await response.Content.ReadAsStringAsync()
+                .ConfigureAwait(false);
         }
 
         private String GenerateNonce()
