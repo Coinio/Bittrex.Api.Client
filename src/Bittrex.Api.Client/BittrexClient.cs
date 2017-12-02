@@ -135,7 +135,7 @@ namespace Bittrex.Api.Client
 
         /// <summary>
         /// Used to get retrieve the orderbook for a given market 
-        /// Example: https://bittrex.com/api/v1.1/public/getorderbook?market=BTC-LTC&type=buy&depth=50    
+        /// Example: https://bittrex.com/api/v1.1/public/getorderbook?market=BTC-LTC&amp;type=buy&amp;depth=50    
         /// </summary>
         /// <returns></returns>
         /// TODO: Create a json converter to handle this properly with OrderType.Both
