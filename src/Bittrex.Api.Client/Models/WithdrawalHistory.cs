@@ -2,9 +2,6 @@
 
 namespace Bittrex.Api.Client.Models
 {
-    /// <summary>
-    /// An open order result from the /market/getopenorders end point
-    /// </summary>
     public class WithdrawalHistory
     {
         public int Id { get; set; }
