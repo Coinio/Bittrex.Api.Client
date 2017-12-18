@@ -339,6 +339,51 @@ namespace Bittrex.Api.Client
         }
 
         /// <summary>
+        /// Used to retrieve your deposit history.
+        /// </summary>
+        /// <param name="currencyName">Optional a string literal for the currency (ie. BTC). If omitted, will return for all currencies</param>
+        /// <returns></returns>
+        public async Task<ApiResult<DepositHistory[]>> GetDepositHistory(String currencyName = null)
+        {
+            var nonce = GenerateNonce();
+
+            var url = $"{_accountBaseUrl}/getdeposithistory?apiKey={_apiKey}&nonce={nonce}";
+
+            if (currencyName != null)
+            {
+                 url += $"&currency={currencyName}";
+            }
+
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
+
+
+            return JsonConvert.DeserializeObject<ApiResult<DepositHistory[]>>(json);
+        }
+
+        /// <summary>
+        /// Used to retrieve your withdrawal history.
+        /// </summary>
+        /// <param name="currencyName">Optional a string literal for the currency (ie. BTC). If omitted, will return for all currencies</param>
+        /// <returns></returns>
+        public async Task<ApiResult<WithdrawalHistory[]>> GetWithdrawalHistory(String currencyName = null)
+        {
+            var nonce = GenerateNonce();
+
+            var url = $"{_accountBaseUrl}/getwithdrawalhistory?apiKey={_apiKey}&nonce={nonce}";
+
+            if (currencyName != null)
+            {
+                url += $"&currency={currencyName}";
+            }
+
+            var json = await GetPrivateAsync(url, _apiSecret)
+                .ConfigureAwait(false);
+
+            return JsonConvert.DeserializeObject<ApiResult<WithdrawalHistory[]>>(json);
+        }
+
+        /// <summary>
         /// Execute a GET request for a public api end point
         /// </summary>
         /// <param name="url"></param>
