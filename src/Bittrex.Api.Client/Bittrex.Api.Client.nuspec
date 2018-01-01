@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/Coinio/Bittrex.Api.Client</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes>Missing field added to Market results.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>C# .net core bitcoin cryptocurrency bittrex api</tags>
   </metadata>
